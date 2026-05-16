@@ -10,6 +10,11 @@ console.log(password);
 console.log(submit);
 
 submit.addEventListener("click", function(event) {
+
+    if (nom.value === "" || email.value === "" || password.value === "") {
+        alert("Please fill in all fields.");
+        return;
+    }
     event.preventDefault();
     console.log("button clicked");
     console.log(nom.value);
