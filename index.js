@@ -32,21 +32,44 @@ submit.addEventListener("click", function(event) {
     alert("Le mot de passe doit contenir au moins 8 caractères.");
     return;
 }
+const savedUser = JSON.parse(localStorage.getItem("user"));
+
+if(savedUser){
+    if(savedUser.email === email.value){
+        alert("Cet email est déjà utilisé.");
+        return;
+    }
+}
 
 if (
-    !/[A-Z]/.test(password.value) ||      !/[a-z]/.test(password.value) ||      !/[0-9]/.test(password.value) ||      !/[!@#$%^&*(),.?":{}|<>]/.test(password.value) 
+    !/[A-Z]/.test(password.value) ||
+    !/[a-z]/.test(password.value) ||
+    !/[0-9]/.test(password.value) ||
+    !/[!@#$%^&*(),.?":{}|<>+-]/.test(password.value)
 ) {
     alert("Le mot de passe doit contenir une majuscule, une minuscule, un chiffre et un symbole.");
     return;
 }
-    if (!email.value.includes("@")) {
-        alert("Please enter a valid email address.");
-        return;
-    }
-    console.log("button clicked");
-    console.log(nom.value);
-    console.log(email.value);
-    console.log(password.value);
 
-    alert("Name: " + nom.value + "\nEmail: " + email.value + "\nPassword: " + password.value);
+if (!email.value.includes("@")) {
+    alert("Please enter a valid email address.");
+    return;
+}
+
+console.log("button clicked");
+
+const user = {
+    name: nom.value,
+    email: email.value,
+    password: password.value
+};
+
+localStorage.setItem("user", JSON.stringify(user));
+
+alert(
+    "Name: " + nom.value +
+    "\nEmail: " + email.value +
+    "\nPassword: " + password.value
+);
+
 });
