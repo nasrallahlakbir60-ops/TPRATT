@@ -1,0 +1,48 @@
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+.form {
+    background: white;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.form h1 {
+    text-align: center;
+    color: red;
+    margin-bottom: 10px;
+}
+@media screen and (max-width: 768px) {
+        body {
+        padding: 15px;
+    }
+
+    .form {
+        width: 100%;
+        padding: 20px;
+        border-radius: 12px;
+    }
+
+    .form h1 {
+        font-size: 28px;
+    }
+
+    .form input {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    .form button {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    .form a {
+        font-size: 13px;
+    }
+    
+}
